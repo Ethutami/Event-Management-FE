@@ -78,7 +78,6 @@ const VoucherCard = () => {
                         CLAIM
                     </div>
                 </div>
-
                 <VoucherModal isOpen={showModal} onClose={() => setShowModal(false)} data={voucher} />
             </>
         );

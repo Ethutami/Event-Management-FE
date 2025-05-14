@@ -6,7 +6,6 @@ import { reviewApiService } from "@/services/reviewApiService";
 import { IReview } from "@/interfaces/review.interface";
 import createDateFormatter from "@/components/dateformater";
 
-
 const ReviewCard = () => {
     const [reviews, setReviews] = useState<IReview[]>([])
     const param = useParams()
@@ -35,7 +34,7 @@ const ReviewCard = () => {
                             }`}
                     >
                         {/* Versi untuk >=700px */}
-                        <div className="hidden md:block grid grid-cols-2 gap-4 w-screen">
+                        <div className="hidden md:block grid grid-cols-2 gap-4 ">
                             <div className="mb-4 flex flex-row items-center gap-2 w-fit">
                                 <div className="">
                                     {Array.from({ length: review?.rating }, (_, index) => (
@@ -45,7 +44,7 @@ const ReviewCard = () => {
                                 <span className="text-gray-500 text-sm">{date}</span>
                             </div>
                             <p className="text-gray-700 mb-2">{review?.message}</p>
-                            <div className="flex items-center mt-6">
+                            <div className="items-center mt-6">
                                 <Image
                                     src={review?.users?.profile_picture || '/no-image.png'}
                                     alt={userName}

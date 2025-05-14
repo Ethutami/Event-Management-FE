@@ -2,21 +2,20 @@
 import { useEffect, useState } from "react";
 import Image from "next/image"
 import { useParams, useRouter } from "next/navigation";
+import { eventApiService } from "@/services/eventApiService";
 import { IUsers } from "@/interfaces/user.interface";
 import { IEvent } from "@/interfaces/events.interface"
 import VoucherCard from "../component/voucher.component";
 import ReviewCard from "../component/reviewCard.componet";
-import { eventApiService } from "@/services/eventApiService";
 import createDateFormatter from "@/components/dateformater";
-
-
 
 const CardTitle = (
     { name, users, price, date }
         : { name: string; users: IUsers; price: number, date: string }
 ) => {
     return (
-        <div className="relative bg-[#F2F2F2] mt-4 p-6 md:p-16 lg:p-16 md:mt-16 lg:mt-16 md:rounded-lg lg:rounded-lg md:shadow-md lg:shadow-md flex justify-between items-center">
+        <div className="relative bg-[#F2F2F2] mt-4 p-6 flex justify-between items-center w-fit
+            md:p-16 lg:p-16 md:mt-16 lg:mt-16 md:rounded-lg lg:rounded-lg md:shadow-md lg:shadow-md ">
             <div className="hidden md:block lg:block absolute top-0 left-0 bg-[#3F72AF] text-md text-[#F9F7F7] px-8 py-4 rounded-md">
                 <p>📅  {date}</p>
             </div>
@@ -144,7 +143,7 @@ const DetailPage = () => {
         const date = createDateFormatter(start_date).includeWeekday().build()
         const time = createDateFormatter(start_date).onlyTime().build()
         return (
-            <div>
+            <>
                 {/* Versi untuk >=700px */}
                 <div className="hidden md:block lg:block px-16 pb-16">
                     <div className="relative">
@@ -162,10 +161,10 @@ const DetailPage = () => {
                     <ReviewCard />
                 </div>
                 {/* Versi untuk <700px */}
-                <div className="block md:hidden lg:hidden px-2 pb-16">
+                <div className="flex flex-col w-screen block md:hidden lg:hidden px-2 pb-16">
                     <button
                         onClick={router.back}
-                        className="items-center text-[#3F72AF] font-medium text-sm cursor-pointer mt-2"
+                        className="text-[#3F72AF] font-medium text-sm cursor-pointer mt-2"
                     >
                         ← Back
                     </button>
@@ -174,7 +173,7 @@ const DetailPage = () => {
                     <VoucherCard />
                     <ReviewCard />
                 </div>
-            </div>
+            </>
         )
     } else (
         <p> no loaded data</p>

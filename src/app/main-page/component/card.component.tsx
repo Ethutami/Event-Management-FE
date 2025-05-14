@@ -25,7 +25,7 @@ const EventCard = ({ name, start_date, price, path, id, }: IEvent) => {
                     />
                 </div>
                 <div className="p-4 text-sm">
-                    <h3 className="font-semibold mb-1">{name}</h3>
+                    <h3 className="font-semibold mb-1 dark:text-[#112D4E]">{name}</h3>
                     <p className="text-gray-600">{date}</p>
                     <p className="mt-2 text-lg font-bold text-[#FBBC05]">{priceTag}</p>
                     {id && (
