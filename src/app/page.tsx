@@ -1,7 +1,7 @@
-import MainPage from "./main-page/page";
+import EventOrganizerPage from "./organizer-event-page/page";
 
 export default function Home() {
   return (
-    <MainPage />
+    <EventOrganizerPage />
   );
 }

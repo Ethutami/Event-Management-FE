@@ -94,6 +94,16 @@
     grid-template-columns: 1fr !important;
   }
 
+  .flex-fiture-price {
+    margin-bottom: 10px;
+  }
+
+  .header-event-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
 }
 
 @media (min-width: 700px) and (max-width: 1000px) {
@@ -121,6 +131,16 @@
   .right-align {
     justify-self: end;
   }
+
+  .flex-fiture-button {
+    flex-direction: row;
+  }
+
+  .header-event-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
 }
 
 @media (max-width: 500px) {
@@ -137,6 +157,10 @@
 
   .single-grid {
     grid-template-columns: 1fr !important;
+  }
+
+  .flex-fiture-price {
+    margin-bottom: 10px;
   }
 }
 
