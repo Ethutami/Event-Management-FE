@@ -24,7 +24,13 @@
     "lucide-react": "^0.503.0",
     "react-datepicker": "^8.3.0",
     "react-redux": "^9.2.0",
-    "yup": "^1.6.1"
+    "yup": "^1.6.1",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "react-feather": "^2.0.10",
+    "recharts": "^2.15.3",
+    "tailwind-merge": "^3.3.0",
+    "swiper": "^11.2.6"
   },
   "devDependencies": {
     "typescript": "^5",
