@@ -1,7 +1,11 @@
-import EventOrganizerPage from "./organizer-event-page/page";
+import Navbar from "@/components/navbar";
+import MainPage from "./main-page/page";
 
 export default function Home() {
   return (
-    <EventOrganizerPage />
+    <>
+      <Navbar />
+      <MainPage />
+    </>
   );
 }
