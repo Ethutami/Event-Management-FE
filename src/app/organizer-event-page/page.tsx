@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react';
 import Image from 'next/image';;
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { useAppDispatch, useAppSelector } from '@/store/hooks';
 import { actionEventSearch } from '@/store/slice/eventSearchSlice';
 import { IEvent } from '@/interfaces/events.interface';
@@ -14,12 +15,14 @@ const EventCard = () => {
     const { events: filterStatus } = useAppSelector((state) => state?.eventStatusReducer);
     const [isSearching, setIsSearching] = useState(filterStatus?.length > 0);
     const dispatch = useAppDispatch()
+    const searchParams = useSearchParams();
+    const id = searchParams.get('id') || 0;
 
     const events = isSearching ? filterStatus : searchEvent;
 
     useEffect(() => {
-        dispatch(actionEventSearch({ organizer_id: 4 }))
-    }, [dispatch])
+        dispatch(actionEventSearch({ organizer_id: Number(id) }))
+    }, [dispatch, id])
 
     useEffect(() => {
         if (searchEvent?.length > 0) {

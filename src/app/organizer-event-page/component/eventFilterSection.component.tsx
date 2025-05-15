@@ -1,6 +1,7 @@
 'use client'
 import { useCallback, useEffect, useState } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 import { SquarePlus } from "lucide-react";
 import { eventApiService } from "@/services/eventApiService";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
@@ -19,6 +20,8 @@ const FilterSection: React.FC = () => {
     const { events } = useAppSelector((state) => state?.eventsearchParamsReducers);
     const dispatch = useAppDispatch()
     const api = eventApiService()
+    const searchParams = useSearchParams();
+    const id = searchParams.get('id') || 0;
 
     const getCategory = useCallback(async () => {
         const res = await api.fetchCategories()
@@ -30,7 +33,7 @@ const FilterSection: React.FC = () => {
         const category = categories.find(cat => cat.category === name);
         if (category && category.id !== undefined && !isNaN(Number(category.id))) {
             setCategorySelected({ id: Number(category.id), category: category.category })
-            dispatch(actionEventSearch({ category_id: category?.id, organizer_id: 4 }))
+            dispatch(actionEventSearch({ category_id: category?.id, organizer_id: Number(id) }))
             setStatus('default')
         }
     }

@@ -212,7 +212,7 @@ export const EventDetails = () => {
         } else {
             try {
                 api.deleteEvent(Number(param?.id))
-                api.searchEvents({ organizer_id: 4 })
+                api.searchEvents({ organizer_id: data?.id })
                 router.back()
                 return;
             } catch (error) {
