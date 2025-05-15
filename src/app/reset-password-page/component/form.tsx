@@ -18,7 +18,6 @@ export default function ResetPasswordForm() {
     try {
       const urlParams = new URLSearchParams(window.location.search);
       const token = urlParams.get("token");
-      console.log(token);
 
       if (values.new_password !== values.confirm_password) throw new Error("Please enter your password again corectly");
 
