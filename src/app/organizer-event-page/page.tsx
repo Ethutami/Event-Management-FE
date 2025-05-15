@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import Image from 'next/image';;
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
@@ -74,9 +74,11 @@ const EventCard = () => {
 
 export default function EventOrganizerPage() {
     return (
-        <div className='mt-16 px-20'>
-            <FilterSection />
-            <EventCard />
-        </div>
+        <Suspense>
+            <div className='mt-16 px-20'>
+                <FilterSection />
+                <EventCard />
+            </div>
+        </Suspense>
     )
 }
