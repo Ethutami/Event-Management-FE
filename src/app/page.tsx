@@ -1,11 +1,11 @@
-import Navbar from "@/components/navbar";
-import MainPage from "./main-page/page";
+import EventOrganizerPage from "./organizer-event-page/page";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <MainPage />
-    </>
+    // <>
+    //   <Navbar />
+    //   <MainPage />
+    // </>
+    <EventOrganizerPage />
   );
 }
