@@ -31,7 +31,7 @@ export default function ResetPasswordForm() {
 
       alert("Reset Password Success");
 
-      router.push("/login")
+      router.push("/signin")
     } catch (err) {
       if (axios.isAxiosError(err) && err.response) {
         const errorMessage = err.response.data.message;
