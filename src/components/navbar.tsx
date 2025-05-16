@@ -110,6 +110,9 @@ export default function Navbar() {
                     src={IMAGE_URL + user.profile_picture || "/no-image.png"}
                     alt="profile-picture"
                     className="rounded-full w-[40px] h-[40px] border-white border-solid border-1"
+                    //eslint error -> widht dan height is must
+                    width={40}
+                    height={40}
                   />
                   <LogOutIcon
                     className="text-white hover:text-red-500"
@@ -171,6 +174,9 @@ export default function Navbar() {
                 src={IMAGE_URL + user.profile_picture || "/no-image.png"}
                 alt="profile-picture"
                 className="rounded-full w-[40px] h-[40px] border-white border-solid border-1 ml-5 mb-2"
+                //eslint error -> widht dan height is required
+                width={40}
+                height={40}
               />
             )}
             {links.map(({ name, url }) => (
