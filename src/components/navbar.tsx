@@ -38,6 +38,7 @@ export default function Navbar() {
           first_name: user.first_name,
           last_name: user.last_name,
           role: user.role,
+          referral_code: user.referral_code,
           profile_picture: user.profile_picture,
         },
         isLogin: true,
@@ -59,8 +60,9 @@ export default function Navbar() {
   return (
     <nav
       ref={navbarRef}
-      className={`bg-[#112D4E] fixed top-0 w-full z-50 transition-transform duration-300 ${isVisible ? "transform translate-y-0" : "transform -translate-y-full"
-        }`}
+      className={`bg-[#112D4E] fixed top-0 w-full z-50 transition-transform duration-300 ${
+        isVisible ? "transform translate-y-0" : "transform -translate-y-full"
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
@@ -106,14 +108,16 @@ export default function Navbar() {
               )}
               {isLogin && (
                 <>
-                  <Image
-                    src={IMAGE_URL + user.profile_picture || "/no-image.png"}
-                    alt="profile-picture"
-                    className="rounded-full w-[40px] h-[40px] border-white border-solid border-1"
-                    //eslint error -> widht dan height is must
-                    width={40}
-                    height={40}
-                  />
+                  <Link href="/profile">
+                    <Image
+                      src={IMAGE_URL + user.profile_picture || "/no-image.png"}
+                      alt="profile-picture"
+                      className="rounded-full w-[40px] h-[40px] border-white border-solid border-1"
+                      //eslint error -> widht dan height is must
+                      width={40}
+                      height={40}
+                    />
+                  </Link>
                   <LogOutIcon
                     className="text-white hover:text-red-500"
                     onClick={() => {
@@ -170,14 +174,16 @@ export default function Navbar() {
         <div className="md:hidden">
           <div className="px-2 pt-2 pb-3 space-y-1">
             {isLogin && (
-              <Image
-                src={IMAGE_URL + user.profile_picture || "/no-image.png"}
-                alt="profile-picture"
-                className="rounded-full w-[40px] h-[40px] border-white border-solid border-1 ml-5 mb-2"
-                //eslint error -> widht dan height is required
-                width={40}
-                height={40}
-              />
+              <Link href="/profile">
+                <Image
+                  src={IMAGE_URL + user.profile_picture || "/no-image.png"}
+                  alt="profile-picture"
+                  className="rounded-full border-white border-solid border-1 ml-5 mb-2"
+                  //eslint error -> widht dan height is required
+                  width={40}
+                  height={40}
+                />
+              </Link>
             )}
             {links.map(({ name, url }) => (
               <Link

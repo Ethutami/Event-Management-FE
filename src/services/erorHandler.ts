@@ -1,10 +1,10 @@
 export const handleError = (error: unknown) => {
     if (error instanceof Error) {
         if (!error.message.includes("Voucher not found")) {
-            console.error(error.message);
+            alert(error.message);
         }
     } else {
-        console.error('Unknown error');
+        alert('Unknown error');
     }
 };
 
